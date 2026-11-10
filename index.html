@@ -1,0 +1,197 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DP - EVENTS | Portafolio Floral</title>
+
+    <link rel="stylesheet" href="css/estilos.css">
+
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@400;500;600&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+<header>
+    <nav class="menu">
+
+        <a href="#inicio" class="logo"><img src="img/logo.png" class="img-logo"></a>
+
+        <button class="menu-toggle" id="menu-toggle">
+            ☰
+        </button>
+
+        <ul class="menu-links" id="menu-links">
+            <li><a href="#inicio">Inicio</a></li>
+            <li><a href="#mision">Misión</a></li>
+            <li><a href="#portafolio">Portafolio</a></li>
+            <li><a href="#contacto">Contacto</a></li>
+        </ul>
+
+    </nav>
+</header>
+
+    <section class="inicio" id="inicio">
+
+        <div class="inicio-texto">
+            <span class="subtitulo">BIENVENIDOS A MI ESPACIO</span>
+
+            <h1>Mi nombre es <span>Day Palacios</span></h1>
+
+            <p>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                Me apasiona crear diseños florales que transmitan emociones,
+                belleza y momentos especiales. Cada trabajo representa
+                una oportunidad para expresar creatividad y dedicación.
+            </p>
+
+            <a href="#portafolio" class="boton">Ver mi trabajo</a>
+        </div>
+
+        <div class="inicio-imagen">
+            <img src="img/day.png" alt="Fotografía de Day Palacios">
+        </div>
+
+    </section>
+
+    <section class="mision" id="mision">
+
+        <div class="mision-contenido">
+            <span class="subtitulo">LO QUE ME INSPIRA</span>
+
+            <h2>Mi misión</h2>
+
+            <p>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                Mi misión es ofrecer creaciones florales únicas que
+                transmitan sentimientos y conviertan cada ocasión en
+                un recuerdo especial, trabajando siempre con creatividad,
+                pasión y dedicación en cada detalle.
+            </p>
+        </div>
+
+    </section>
+
+    <section class="portafolio" id="portafolio">
+
+        <div class="portafolio-titulo">
+            <span class="subtitulo">MIS CREACIONES</span>
+            <h2>Mi portafolio</h2>
+            <p>Un pequeño vistazo a algunos de mis trabajos.</p>
+        </div>
+
+        <div class="galeria">
+
+            <div class="tarjeta">
+                <img src="img/flor1.jpg" alt="Arreglo floral 1">
+                <div class="tarjeta-texto">
+                    <h3>Diseño floral</h3>
+                    <p>Creaciones llenas de color y delicadeza.</p>
+                </div>
+            </div>
+
+            <div class="tarjeta">
+                <img src="img/flor2.jpg" alt="Arreglo floral 2">
+                <div class="tarjeta-texto">
+                    <h3>Arreglos especiales</h3>
+                    <p>Detalles únicos para momentos especiales.</p>
+                </div>
+            </div>
+
+            <div class="tarjeta">
+                <img src="img/flor3.jpg" alt="Arreglo floral 3">
+                <div class="tarjeta-texto">
+                    <h3>Arte floral</h3>
+                    <p>La belleza de las flores en cada composición.</p>
+                </div>
+            </div>
+
+        </div>
+
+    </section>
+
+<section class="contacto" id="contacto">
+
+    <span class="subtitulo">HAGAMOS ALGO JUNTOS</span>
+
+    <h2>¿Te gusta mi trabajo?</h2>
+
+    <p>
+        Puedes escribirme y trabajamos juntos.
+        Me encantará conocer tus ideas y crear algo especial para ti.
+    </p>
+
+    <a href="https://wa.me/50300000000?text=Hola%20Day,%20me%20gusta%20tu%20trabajo%20y%20me%20gustar%C3%ADa%20trabajar%20contigo."
+       target="_blank"
+       class="boton-contacto">
+        Escríbeme por WhatsApp
+    </a>
+
+</section>
+
+    <footer>
+
+        <a href="#inicio" class="footer-logo">
+            <img src="img/logo.png" alt="Logo Day Palacios">
+        </a>
+
+        <div class="redes">
+
+            <a href="https://www.instagram.com/" target="_blank">
+                Instagram
+            </a>
+
+            <a href="https://www.facebook.com/" target="_blank">
+                Facebook
+            </a>
+
+            <a href="https://wa.me/50300000000" target="_blank">
+                WhatsApp
+            </a>
+
+        </div>
+
+        <p>© 2026 Day Palacios. Todos los derechos reservados.</p>
+
+    </footer>
+
+
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+
+        const menuToggle = document.getElementById("menu-toggle");
+        const menuLinks = document.getElementById("menu-links");
+
+        // ABRIR Y CERRAR MENU
+        menuToggle.addEventListener("click", function() {
+
+            menuLinks.classList.toggle("activo");
+
+            if (menuLinks.classList.contains("activo")) {
+                menuToggle.textContent = "✕";
+            } else {
+                menuToggle.textContent = "☰";
+            }
+
+        });
+
+        // CERRAR MENU AL SELECCIONAR UNA OPCION
+        const enlaces = document.querySelectorAll(".menu-links a");
+
+        enlaces.forEach(function(enlace) {
+
+            enlace.addEventListener("click", function() {
+
+                menuLinks.classList.remove("activo");
+                menuToggle.textContent = "☰";
+
+            });
+
+        });
+
+    });
+</script>
+</body>
+</html>
+
