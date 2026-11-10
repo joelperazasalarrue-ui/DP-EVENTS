@@ -180,7 +180,8 @@ header {
     width: 100%;
     max-width: 400px;
     height: 450px;
-    object-fit: contain;
+    object-fit: cover;
+    border-radius: 60px;
 }
 
 
