@@ -1,3 +1,8 @@
+
+/* =================================
+   CONFIGURACION GENERAL
+================================= */
+
 :root {
     --rosa: #d9a6a7;
     --rosa-claro: #f7eeee;
@@ -24,32 +29,32 @@ body {
 }
 
 
+/* =================================
+   MENU DE NAVEGACION
+================================= */
+
 header {
     width: 100%;
     background-color: var(--blanco);
-    padding: 22px 8%;
+    padding: 18px 8%;
 }
 
-.menu .img-logo {
-    width: 150px;
-    object-fit: contain;
-    display: block;
-}
 .menu {
     display: flex;
     justify-content: space-between;
     align-items: center;
 }
-.logo {
-    font-family: var(--titulo);
-    font-size: 23px;
-    color: var(--oscuro);
-    text-decoration: none;
-    letter-spacing: 2px;
+
+.menu .img-logo {
+    width: 120px;
+    max-height: 55px;
+    object-fit: contain;
+    display: block;
 }
 
 .menu ul {
     display: flex;
+    align-items: center;
     list-style: none;
     gap: 35px;
 }
@@ -64,6 +69,20 @@ header {
 .menu ul li a:hover {
     color: var(--rosa);
 }
+
+.menu-toggle {
+    display: none;
+    background: none;
+    border: none;
+    font-size: 28px;
+    color: var(--oscuro);
+    cursor: pointer;
+}
+
+
+/* =================================
+   PRESENTACION / INICIO
+================================= */
 
 .inicio {
     min-height: 580px;
@@ -133,33 +152,71 @@ header {
     object-fit: contain;
 }
 
+
+/* =================================
+   MISION, VISION Y VALORES
+================================= */
+
 .mision {
-    padding: 100px 10%;
-    display: flex;
-    justify-content: center;
+    padding: 90px 10%;
     background-color: var(--blanco);
 }
 
-.mision-contenido {
-    max-width: 750px;
+.mision-titulo {
     text-align: center;
-    background-color: var(--beige);
-    padding: 60px 70px;
-    border-radius: 12px;
+    margin-bottom: 50px;
 }
 
-.mision h2,
-.portafolio h2 {
+.mision-titulo h2 {
     font-family: var(--titulo);
     font-size: 38px;
     font-weight: 400;
-    margin: 15px 0 20px;
+    margin: 15px 0;
 }
 
-.mision p {
-    font-size: 15px;
-    line-height: 2;
+.mision-titulo p {
+    font-size: 14px;
 }
+
+.mision-tarjetas {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 25px;
+}
+
+.mision-card {
+    background-color: var(--beige);
+    padding: 40px 30px;
+    border-radius: 10px;
+    transition: 0.3s;
+}
+
+.mision-card:hover {
+    transform: translateY(-7px);
+}
+
+.numero {
+    font-family: var(--titulo);
+    font-size: 18px;
+    color: var(--rosa);
+}
+
+.mision-card h3 {
+    font-family: var(--titulo);
+    font-size: 27px;
+    font-weight: 500;
+    margin: 20px 0 15px;
+}
+
+.mision-card p {
+    font-size: 14px;
+    line-height: 1.9;
+}
+
+
+/* =================================
+   PORTAFOLIO
+================================= */
 
 .portafolio {
     padding: 80px 10%;
@@ -169,6 +226,13 @@ header {
 .portafolio-titulo {
     text-align: center;
     margin-bottom: 50px;
+}
+
+.portafolio h2 {
+    font-family: var(--titulo);
+    font-size: 38px;
+    font-weight: 400;
+    margin: 15px 0 20px;
 }
 
 .portafolio-titulo p {
@@ -216,166 +280,9 @@ header {
 }
 
 
-.contacto {
-    padding: 90px 10%;
-    background-color: var(--beige);
-    text-align: center;
-}
-
-.contacto h2 {
-    font-family: var(--titulo);
-    font-size: 42px;
-    font-weight: 400;
-    margin: 18px 0;
-}
-
-.contacto p {
-    font-size: 15px;
-    line-height: 1.8;
-    max-width: 500px;
-    margin: 0 auto 30px;
-}
-
-.boton-contacto {
-    display: inline-block;
-    padding: 15px 32px;
-    background-color: var(--verde);
-    color: var(--blanco);
-    text-decoration: none;
-    font-size: 14px;
-    border-radius: 3px;
-    transition: 0.3s;
-}
-
-.boton-contacto:hover {
-    background-color: var(--oscuro);
-    transform: translateY(-3px);
-}
-
-
-footer {
-    padding: 45px 10%;
-    background-color: var(--oscuro);
-    color: var(--blanco);
-    text-align: center;
-}
-
-.footer-logo img {
-    width: 150px;
-    object-fit: contain;
-    margin-bottom: 20px;
-}
-
-.redes {
-    display: flex;
-    justify-content: center;
-    gap: 30px;
-    margin-bottom: 25px;
-}
-
-.redes a {
-    text-decoration: none;
-    color: var(--blanco);
-    font-size: 14px;
-    transition: 0.3s;
-}
-
-.redes a:hover {
-    color: var(--rosa);
-}
-
-footer p {
-    font-size: 11px;
-    color: #c9c4c1;
-}
-
-
-.menu-toggle {
-    display: none;
-    background: none;
-    border: none;
-    font-size: 28px;
-    color: var(--oscuro);
-    cursor: pointer;
-}
-
-
-@media (max-width: 768px) {
-
-    header {
-        padding: 20px 6%;
-    }
-
-    .menu {
-        flex-wrap: wrap;
-        justify-content: space-between;
-    }
-
-    .menu-toggle {
-        display: block;
-    }
-
-    .menu-links {
-        display: none !important;
-        flex-direction: column;
-        align-items: center;
-        width: 100%;
-        gap: 20px !important;
-        padding: 25px 0 10px;
-    }
-
-    .menu-links.activo {
-        display: flex !important;
-    }
-
-    .menu-links li a {
-        font-size: 14px;
-    }
-
-    .inicio {
-        flex-direction: column;
-        text-align: center;
-        padding: 60px 8%;
-    }
-
-    .inicio h1 {
-        font-size: 38px;
-    }
-
-    .inicio p {
-        margin: 0 auto 25px;
-    }
-
-    .inicio-imagen img {
-        height: 350px;
-    }
-
-    .mision {
-        padding: 60px 6%;
-    }
-
-    .mision-contenido {
-        padding: 40px 25px;
-    }
-
-    .galeria {
-        grid-template-columns: 1fr;
-    }
-
-    .tarjeta img {
-        height: 300px;
-    }
-
-    .portafolio {
-        padding: 60px 7%;
-    }
-
-    .redes {
-        gap: 18px;
-        flex-wrap: wrap;
-    }
-
-}
+/* =================================
+   VIDEOS DE TIKTOK
+================================= */
 
 .videos {
     padding: 90px 10%;
@@ -442,9 +349,233 @@ footer p {
     line-height: 1.8;
 }
 
-/* RESPONSIVE VIDEOS */
+
+/* =================================
+   HISTORIA DEL NEGOCIO
+================================= */
+
+.historia {
+    padding: 90px 10%;
+    background-color: var(--rosa-claro);
+}
+
+.historia-contenido {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 60px;
+    max-width: 1100px;
+    margin: auto;
+}
+
+.historia-texto {
+    flex: 1;
+}
+
+.historia-texto h2 {
+    font-family: var(--titulo);
+    font-size: 40px;
+    font-weight: 400;
+    margin: 20px 0;
+}
+
+.historia-texto p {
+    font-size: 14px;
+    line-height: 1.9;
+    margin-bottom: 15px;
+}
+
+.historia-video {
+    flex: 1;
+    width: 100%;
+    max-width: 500px;
+    aspect-ratio: 16 / 9;
+    overflow: hidden;
+    border-radius: 12px;
+    background-color: #000;
+}
+
+.historia-video iframe {
+    width: 100%;
+    height: 100%;
+    border: none;
+}
+
+
+/* =================================
+   CONTACTO WHATSAPP
+================================= */
+
+.contacto {
+    padding: 90px 10%;
+    background-color: var(--beige);
+    text-align: center;
+}
+
+.contacto h2 {
+    font-family: var(--titulo);
+    font-size: 42px;
+    font-weight: 400;
+    margin: 18px 0;
+}
+
+.contacto p {
+    font-size: 15px;
+    line-height: 1.8;
+    max-width: 500px;
+    margin: 0 auto 30px;
+}
+
+.boton-contacto {
+    display: inline-block;
+    padding: 15px 32px;
+    background-color: var(--verde);
+    color: var(--blanco);
+    text-decoration: none;
+    font-size: 14px;
+    border-radius: 3px;
+    transition: 0.3s;
+}
+
+.boton-contacto:hover {
+    background-color: var(--oscuro);
+    transform: translateY(-3px);
+}
+
+
+/* =================================
+   FOOTER
+================================= */
+
+footer {
+    padding: 45px 10%;
+    background-color: var(--oscuro);
+    color: var(--blanco);
+    text-align: center;
+}
+
+.footer-logo img {
+    width: 120px;
+    max-height: 70px;
+    object-fit: contain;
+    margin-bottom: 20px;
+}
+
+.redes {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    margin-bottom: 25px;
+}
+
+.redes a {
+    text-decoration: none;
+    color: var(--blanco);
+    font-size: 14px;
+    transition: 0.3s;
+}
+
+.redes a:hover {
+    color: var(--rosa);
+}
+
+footer p {
+    font-size: 11px;
+    color: #c9c4c1;
+}
+
+
+/* =================================
+   RESPONSIVE - TABLET Y CELULAR
+================================= */
 
 @media (max-width: 768px) {
+
+    /* MENU */
+
+    header {
+        padding: 18px 6%;
+    }
+
+    .menu {
+        flex-wrap: wrap;
+        justify-content: space-between;
+    }
+
+    .menu-toggle {
+        display: block;
+    }
+
+    .menu-links {
+        display: none !important;
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
+        gap: 20px !important;
+        padding: 25px 0 10px;
+    }
+
+    .menu-links.activo {
+        display: flex !important;
+    }
+
+    .menu-links li a {
+        font-size: 14px;
+    }
+
+
+    /* INICIO */
+
+    .inicio {
+        flex-direction: column;
+        text-align: center;
+        padding: 60px 8%;
+    }
+
+    .inicio h1 {
+        font-size: 38px;
+    }
+
+    .inicio p {
+        margin: 0 auto 25px;
+    }
+
+    .inicio-imagen img {
+        height: 350px;
+    }
+
+
+    /* MISION, VISION Y VALORES */
+
+    .mision {
+        padding: 60px 7%;
+    }
+
+    .mision-tarjetas {
+        grid-template-columns: 1fr;
+    }
+
+    .mision-card {
+        padding: 35px 25px;
+    }
+
+
+    /* PORTAFOLIO */
+
+    .portafolio {
+        padding: 60px 7%;
+    }
+
+    .galeria {
+        grid-template-columns: 1fr;
+    }
+
+    .tarjeta img {
+        height: 300px;
+    }
+
+
+    /* VIDEOS */
 
     .videos {
         padding: 60px 7%;
@@ -453,6 +584,50 @@ footer p {
     .videos-contenedor {
         grid-template-columns: 1fr;
         max-width: 380px;
+    }
+
+
+    /* HISTORIA */
+
+    .historia {
+        padding: 60px 7%;
+    }
+
+    .historia-contenido {
+        flex-direction: column;
+        gap: 30px;
+        text-align: center;
+    }
+
+    .historia-texto h2 {
+        font-size: 32px;
+    }
+
+    .historia-video {
+        max-width: 100%;
+    }
+
+
+    /* CONTACTO */
+
+    .contacto {
+        padding: 65px 7%;
+    }
+
+    .contacto h2 {
+        font-size: 34px;
+    }
+
+
+    /* FOOTER */
+
+    footer {
+        padding: 40px 7%;
+    }
+
+    .redes {
+        gap: 18px;
+        flex-wrap: wrap;
     }
 
 }
