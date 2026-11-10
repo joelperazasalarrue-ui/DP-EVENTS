@@ -376,3 +376,83 @@ footer p {
     }
 
 }
+
+.videos {
+    padding: 90px 10%;
+    background-color: var(--blanco);
+}
+
+.videos-titulo {
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+.videos-titulo h2 {
+    font-family: var(--titulo);
+    font-size: 38px;
+    font-weight: 400;
+    margin: 15px 0;
+}
+
+.videos-titulo p {
+    font-size: 14px;
+    line-height: 1.8;
+}
+
+.videos-contenedor {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 35px;
+    max-width: 850px;
+    margin: auto;
+}
+
+.video-tarjeta {
+    background-color: var(--rosa-claro);
+    border-radius: 12px;
+    overflow: hidden;
+}
+
+.video-marco {
+    width: 100%;
+    aspect-ratio: 9 / 16;
+    max-height: 500px;
+    background-color: #000;
+}
+
+.video-marco iframe {
+    width: 100%;
+    height: 100%;
+    border: none;
+}
+
+.video-info {
+    padding: 22px;
+}
+
+.video-info h3 {
+    font-family: var(--titulo);
+    font-size: 23px;
+    font-weight: 500;
+    margin-bottom: 10px;
+}
+
+.video-info p {
+    font-size: 13px;
+    line-height: 1.8;
+}
+
+/* RESPONSIVE VIDEOS */
+
+@media (max-width: 768px) {
+
+    .videos {
+        padding: 60px 7%;
+    }
+
+    .videos-contenedor {
+        grid-template-columns: 1fr;
+        max-width: 380px;
+    }
+
+}
