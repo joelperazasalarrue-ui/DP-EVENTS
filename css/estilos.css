@@ -9,8 +9,6 @@
     --verde: #667765;
     --oscuro: #35302f;
     --blanco: #ffffff;
-
-    /* Con fuentes de respaldo por si Google Fonts no carga */
     --titulo: 'Playfair Display', Georgia, 'Times New Roman', serif;
     --texto: 'DM Sans', Arial, Helvetica, sans-serif;
 }
