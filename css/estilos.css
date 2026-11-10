@@ -147,6 +147,17 @@ header {
     display: block;
 }
 
+.inicio h3 {
+    font-family: var(--titulo);
+    font-size: 22px;
+    font-weight: 400;
+    font-style: italic;
+    line-height: 1.5;
+    color: var(--verde);
+    max-width: 480px;
+    margin-bottom: 20px;
+}
+
 .inicio p {
     font-size: 15px;
     line-height: 1.9;
