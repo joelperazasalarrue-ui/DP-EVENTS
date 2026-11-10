@@ -1,4 +1,3 @@
-
 /* =================================
    CONFIGURACION GENERAL
 ================================= */
@@ -11,21 +10,51 @@
     --oscuro: #35302f;
     --blanco: #ffffff;
 
-    --titulo: 'Playfair Display', serif;
-    --texto: 'DM Sans', sans-serif;
+    /* Con fuentes de respaldo por si Google Fonts no carga */
+    --titulo: 'Playfair Display', Georgia, 'Times New Roman', serif;
+    --texto: 'DM Sans', Arial, Helvetica, sans-serif;
 }
 
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+}
+
+html {
     scroll-behavior: smooth;
+    scroll-padding-top: 80px; /* evita que el menu tape los titulos al navegar */
 }
 
 body {
     font-family: var(--texto);
     background-color: var(--blanco);
     color: var(--oscuro);
+    -webkit-text-size-adjust: 100%;
+}
+
+img,
+iframe {
+    max-width: 100%;
+}
+
+img {
+    display: block;
+}
+
+:focus-visible {
+    outline: 2px solid var(--verde);
+    outline-offset: 3px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    html {
+        scroll-behavior: auto;
+    }
+
+    * {
+        transition: none !important;
+    }
 }
 
 
@@ -34,6 +63,9 @@ body {
 ================================= */
 
 header {
+    position: sticky;
+    top: 0;
+    z-index: 100;
     width: 100%;
     background-color: var(--blanco);
     padding: 18px 8%;
@@ -49,24 +81,23 @@ header {
     width: 120px;
     max-height: 55px;
     object-fit: contain;
-    display: block;
 }
 
-.menu ul {
+.menu-links {
     display: flex;
     align-items: center;
     list-style: none;
     gap: 35px;
 }
 
-.menu ul li a {
+.menu-links li a {
     text-decoration: none;
     color: var(--oscuro);
     font-size: 14px;
-    transition: 0.3s;
+    transition: color 0.3s;
 }
 
-.menu ul li a:hover {
+.menu-links li a:hover {
     color: var(--rosa);
 }
 
@@ -132,7 +163,7 @@ header {
     color: var(--blanco);
     text-decoration: none;
     font-size: 13px;
-    transition: 0.3s;
+    transition: background-color 0.3s;
 }
 
 .boton:hover {
@@ -188,7 +219,7 @@ header {
     background-color: var(--beige);
     padding: 40px 30px;
     border-radius: 10px;
-    transition: 0.3s;
+    transition: transform 0.3s;
 }
 
 .mision-card:hover {
@@ -213,6 +244,15 @@ header {
     line-height: 1.9;
 }
 
+.mision-card ul {
+    list-style: none;
+    padding: 0;
+    margin-top: 15px;
+}
+
+.mision-card li {
+    margin-bottom: 8px;
+}
 
 /* =================================
    PORTAFOLIO
@@ -249,7 +289,7 @@ header {
     background-color: var(--blanco);
     overflow: hidden;
     border-radius: 10px;
-    transition: 0.3s;
+    transition: transform 0.3s;
 }
 
 .tarjeta:hover {
@@ -260,7 +300,6 @@ header {
     width: 100%;
     height: 280px;
     object-fit: cover;
-    display: block;
 }
 
 .tarjeta-texto {
@@ -311,7 +350,7 @@ header {
     grid-template-columns: repeat(2, 1fr);
     gap: 35px;
     max-width: 850px;
-    margin: auto;
+    margin: 0 auto;
 }
 
 .video-tarjeta {
@@ -320,10 +359,13 @@ header {
     overflow: hidden;
 }
 
+/* Antes: max-height rompia la proporcion 9:16.
+   Ahora se limita el ANCHO y la altura se calcula sola. */
 .video-marco {
     width: 100%;
+    max-width: 320px;
+    margin: 0 auto;
     aspect-ratio: 9 / 16;
-    max-height: 500px;
     background-color: #000;
 }
 
@@ -331,6 +373,7 @@ header {
     width: 100%;
     height: 100%;
     border: none;
+    display: block;
 }
 
 .video-info {
@@ -365,7 +408,7 @@ header {
     justify-content: space-between;
     gap: 60px;
     max-width: 1100px;
-    margin: auto;
+    margin: 0 auto;
 }
 
 .historia-texto {
@@ -399,6 +442,7 @@ header {
     width: 100%;
     height: 100%;
     border: none;
+    display: block;
 }
 
 
@@ -434,7 +478,7 @@ header {
     text-decoration: none;
     font-size: 14px;
     border-radius: 3px;
-    transition: 0.3s;
+    transition: background-color 0.3s, transform 0.3s;
 }
 
 .boton-contacto:hover {
@@ -458,7 +502,7 @@ footer {
     width: 120px;
     max-height: 70px;
     object-fit: contain;
-    margin-bottom: 20px;
+    margin: 0 auto 20px;
 }
 
 .redes {
@@ -472,7 +516,7 @@ footer {
     text-decoration: none;
     color: var(--blanco);
     font-size: 14px;
-    transition: 0.3s;
+    transition: color 0.3s;
 }
 
 .redes a:hover {
@@ -486,7 +530,27 @@ footer p {
 
 
 /* =================================
-   RESPONSIVE - TABLET Y CELULAR
+   RESPONSIVE - TABLET
+================================= */
+
+@media (max-width: 1024px) {
+
+    .galeria {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .mision-tarjetas {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .inicio h1 {
+        font-size: 42px;
+    }
+}
+
+
+/* =================================
+   RESPONSIVE - CELULAR
 ================================= */
 
 @media (max-width: 768px) {
@@ -499,28 +563,24 @@ footer p {
 
     .menu {
         flex-wrap: wrap;
-        justify-content: space-between;
     }
 
     .menu-toggle {
         display: block;
     }
 
-    .menu-links {
-        display: none !important;
+    /* Mayor especificidad en lugar de usar !important */
+    .menu .menu-links {
+        display: none;
         flex-direction: column;
         align-items: center;
         width: 100%;
-        gap: 20px !important;
+        gap: 20px;
         padding: 25px 0 10px;
     }
 
-    .menu-links.activo {
-        display: flex !important;
-    }
-
-    .menu-links li a {
-        font-size: 14px;
+    .menu .menu-links.activo {
+        display: flex;
     }
 
 
@@ -530,6 +590,13 @@ footer p {
         flex-direction: column;
         text-align: center;
         padding: 60px 8%;
+    }
+
+    /* En columna, flex:1 puede colapsar alturas; se desactiva */
+    .inicio-texto,
+    .inicio-imagen {
+        flex: none;
+        width: 100%;
     }
 
     .inicio h1 {
@@ -599,6 +666,13 @@ footer p {
         text-align: center;
     }
 
+    /* Sin esto el video 16:9 puede quedar con altura 0 en columna */
+    .historia-texto,
+    .historia-video {
+        flex: none;
+        width: 100%;
+    }
+
     .historia-texto h2 {
         font-size: 32px;
     }
@@ -629,5 +703,4 @@ footer p {
         gap: 18px;
         flex-wrap: wrap;
     }
-
 }
