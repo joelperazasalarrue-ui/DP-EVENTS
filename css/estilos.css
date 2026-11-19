@@ -492,6 +492,276 @@ header {
     transform: translateY(-3px);
 }
 
+/* =================================
+   CATALOGO / PRECIOS
+================================= */
+
+.catalogo {
+    padding: 90px 10%;
+    background-color: var(--blanco);
+}
+
+.catalogo-titulo {
+    text-align: center;
+    margin-bottom: 60px;
+}
+
+.catalogo-titulo h2 {
+    font-family: var(--titulo);
+    font-size: 38px;
+    font-weight: 400;
+    margin: 15px 0;
+}
+
+.catalogo-titulo p {
+    font-size: 14px;
+}
+
+.catalogo-bloque {
+    max-width: 1100px;
+    margin: 0 auto 70px;
+}
+
+.catalogo-bloque:last-child {
+    margin-bottom: 0;
+}
+
+.catalogo-bloque h3 {
+    font-family: var(--titulo);
+    font-size: 30px;
+    font-weight: 500;
+    text-align: center;
+    margin-bottom: 8px;
+}
+
+.catalogo-bloque > p {
+    font-size: 14px;
+    text-align: center;
+    margin-bottom: 35px;
+}
+
+.precio-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 25px;
+}
+
+.precio-card {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    background-color: var(--beige);
+    border: 2px solid transparent;
+    border-radius: 12px;
+    overflow: hidden;
+    transition: transform 0.3s;
+}
+
+.precio-card:hover {
+    transform: translateY(-8px);
+}
+
+.precio-card.destacada {
+    border-color: var(--rosa);
+}
+
+/* Solo imagenes sueltas (sin carrusel). Las del carrusel se
+   controlan en la seccion CARRUSEL. */
+.precio-card > img {
+    width: 100%;
+    height: 220px;
+    object-fit: cover;
+}
+
+.etiqueta {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    z-index: 3; /* queda por encima del carrusel */
+    background-color: var(--rosa);
+    color: var(--oscuro);
+    font-size: 11px;
+    font-weight: 600;
+    padding: 5px 12px;
+    border-radius: 20px;
+}
+
+.precio-cuerpo {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    padding: 28px 25px;
+}
+
+.precio-tamano {
+    color: var(--verde);
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 3px;
+}
+
+.precio-cuerpo h4 {
+    font-family: var(--titulo);
+    font-size: 24px;
+    font-weight: 500;
+    margin: 10px 0 5px;
+}
+
+.precio {
+    font-family: var(--titulo);
+    font-size: 32px;
+    margin-bottom: 15px;
+}
+
+.precio-lista {
+    list-style: none;
+    margin-bottom: 25px;
+    flex: 1;
+}
+
+.precio-lista li {
+    position: relative;
+    padding-left: 18px;
+    font-size: 13px;
+    line-height: 1.9;
+}
+
+.precio-lista li::before {
+    content: "•";
+    position: absolute;
+    left: 0;
+    color: var(--rosa);
+    font-weight: bold;
+}
+
+.precio-card .boton {
+    text-align: center;
+    border-radius: 3px;
+}
+
+
+/* =================================
+   CARRUSEL (dentro de .precio-card)
+================================= */
+
+.carousel {
+    position: relative;
+    overflow: hidden;
+    aspect-ratio: 4 / 3;
+    background-color: var(--rosa-claro);
+    touch-action: pan-y; /* permite scroll vertical y deslizar en horizontal */
+}
+
+.carousel-track {
+    display: flex;
+    height: 100%;
+    transition: transform 0.6s cubic-bezier(0.65, 0, 0.35, 1);
+}
+
+.carousel-track img {
+    flex: 0 0 100%;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.carousel-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 2;
+    width: 36px;
+    height: 36px;
+    border: none;
+    border-radius: 50%;
+    background-color: rgba(255, 255, 255, 0.88);
+    color: var(--oscuro);
+    font-size: 22px;
+    line-height: 1;
+    cursor: pointer;
+    opacity: 0;
+    transition: opacity 0.3s, background-color 0.3s;
+}
+
+.carousel-btn:hover {
+    background-color: var(--blanco);
+}
+
+.carousel:hover .carousel-btn,
+.carousel-btn:focus-visible {
+    opacity: 1;
+}
+
+.carousel-btn.prev {
+    left: 12px;
+}
+
+.carousel-btn.next {
+    right: 12px;
+}
+
+.carousel-dots {
+    position: absolute;
+    bottom: 14px;
+    left: 0;
+    right: 0;
+    z-index: 2;
+    display: flex;
+    justify-content: center;
+    gap: 8px;
+}
+
+.carousel-dots button {
+    width: 7px;
+    height: 7px;
+    padding: 0;
+    border: none;
+    border-radius: 50%;
+    background-color: rgba(255, 255, 255, 0.55);
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.carousel-dots button.active {
+    width: 20px;
+    border-radius: 4px;
+    background-color: var(--blanco);
+}
+
+
+/* ---- Una sola tarjeta por rango: carrusel a la izquierda, info a la derecha ---- */
+
+.precio-grid.precio-grid--unica {
+    grid-template-columns: 1fr;
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.precio-grid--unica .precio-card {
+    flex-direction: row;
+}
+
+.precio-grid--unica .precio-card:hover {
+    transform: translateY(-5px);
+}
+
+.precio-grid--unica .carousel {
+    flex: 1 1 55%;
+    aspect-ratio: auto;
+    min-height: 420px;
+}
+
+.precio-grid--unica .carousel-track {
+    position: absolute;
+    inset: 0;
+}
+
+.precio-grid--unica .precio-cuerpo {
+    flex: 1 1 45%;
+    justify-content: center;
+    padding: 40px 35px;
+}
+
 
 /* =================================
    FOOTER
@@ -548,10 +818,16 @@ footer p {
         grid-template-columns: repeat(2, 1fr);
     }
 
+    .precio-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
     .inicio h1 {
         font-size: 42px;
     }
 }
+
+
 
 
 /* =================================
@@ -684,6 +960,43 @@ footer p {
 
     .historia-video {
         max-width: 100%;
+    }
+
+
+    /* CATALOGO / PRECIOS */
+
+    .catalogo {
+        padding: 60px 7%;
+    }
+
+    .precio-grid {
+        grid-template-columns: 1fr;
+        max-width: 420px;
+        margin: 0 auto;
+    }
+
+    /* En celular la tarjeta se apila: foto arriba, info abajo */
+    .precio-grid.precio-grid--unica {
+        max-width: 480px;
+    }
+
+    .precio-grid--unica .precio-card {
+        flex-direction: column;
+    }
+
+    .precio-grid--unica .carousel {
+        flex: none;
+        aspect-ratio: 4 / 3;
+        min-height: 0;
+    }
+
+    .precio-grid--unica .precio-cuerpo {
+        padding: 28px 25px;
+    }
+
+    /* En celular no hay hover: las flechas siempre visibles */
+    .carousel-btn {
+        opacity: 1;
     }
 
 
